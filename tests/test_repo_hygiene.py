@@ -216,7 +216,42 @@ def _git(*args: str) -> str:
     ).stdout
 
 
-@pytest.mark.skipif(not (REPO / ".git").exists(), reason="not a git checkout")
+def _is_git_checkout() -> bool:
+    return (REPO / ".git").exists()
+
+
+def _history_is_complete() -> bool:
+    """Whether this checkout can see the whole history, or only the tip of it.
+
+    This function exists because of a CI failure I could not reproduce on any
+    machine I had. Four of the five jobs went red on GitHub while the same suite
+    was green locally and green from a fresh full clone. The cause was
+    actions/checkout, which clones with depth 1 unless told otherwise, so the
+    runner saw one commit and the dump commit test saw a dump commit.
+
+    The workflow now sets fetch-depth: 0, which is the real fix. This guard is
+    the second half of it: a test that asserts a property of the history has no
+    business failing on a checkout that was never given the history. It reports
+    what it cannot see instead of reporting a defect that is not there.
+    """
+    if not _is_git_checkout():
+        return False
+    return _git("rev-parse", "--is-shallow-repository").strip() != "true"
+
+
+needs_git = pytest.mark.skipif(not _is_git_checkout(), reason="not a git checkout")
+needs_history = pytest.mark.skipif(
+    not _history_is_complete(), reason="shallow checkout, the history is not present to check"
+)
+
+# A commit made through the GitHub web editor is authored by the same person and
+# committed by GitHub, under the account's noreply address. That is not a second
+# author, and the first version of the author test called it one.
+GITHUB_COMMITTERS = ("noreply@github.com", "web-flow")
+BOT_MARKERS = ("[bot]", "bot@", "dependabot", "renovate", "github-actions")
+
+
+@needs_git
 def test_no_commit_message_carries_an_ai_attribution():
     log = _git("log", "--format=%B%n%an%n%ae").lower()
     for marker in (
@@ -232,18 +267,46 @@ def test_no_commit_message_carries_an_ai_attribution():
         assert marker not in log, marker
 
 
-@pytest.mark.skipif(not (REPO / ".git").exists(), reason="not a git checkout")
-def test_every_commit_has_the_same_author():
+@needs_history
+def test_no_commit_was_written_by_a_bot():
+    """Replaces an assertion that every commit carried one identical author.
+
+    That version was too strict to survive contact with GitHub. Editing a file
+    in the web UI produces a commit whose committer is GitHub, and the test read
+    the extra identity as a broken history rather than as what it is. What this
+    file actually needs to defend is that a person wrote the history and no tool
+    signed it, so that is what it now asserts.
+    """
+    identities = {
+        line.lower() for line in _git("log", "--format=%an <%ae>%n%cn <%ce>").splitlines() if line
+    }
+    offenders = [
+        identity
+        for identity in identities
+        if any(marker in identity for marker in BOT_MARKERS)
+        and not any(allowed in identity for allowed in GITHUB_COMMITTERS)
+    ]
+    assert offenders == []
+
+
+@needs_history
+def test_the_history_has_one_human_author():
+    """One person authored every commit, ignoring who GitHub recorded as committer."""
     authors = {line for line in _git("log", "--format=%an <%ae>").splitlines() if line}
-    assert len(authors) == 1
+    non_github = {
+        author
+        for author in authors
+        if not any(allowed in author.lower() for allowed in GITHUB_COMMITTERS)
+    }
+    assert len(non_github) == 1, sorted(authors)
 
 
-@pytest.mark.skipif(not (REPO / ".git").exists(), reason="not a git checkout")
+@needs_history
 def test_the_history_is_not_a_single_dump_commit():
     count = len(_git("log", "--format=%h").splitlines())
     assert count >= 5
 
 
-@pytest.mark.skipif(not (REPO / ".git").exists(), reason="not a git checkout")
+@needs_git
 def test_no_commit_message_contains_an_em_dash():
     assert EM_DASH not in _git("log", "--format=%B")

@@ -33,7 +33,14 @@ jobs:
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
     steps:
+      # fetch-depth: 0, and this line is why four of the five jobs were red.
+      # actions/checkout clones with depth 1 by default, so `git log` on the
+      # runner returns exactly one commit, and tests/test_repo_hygiene.py
+      # asserts the history has at least five. The suite was green on every
+      # machine that had the history and red on the only machine that did not.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
@@ -64,7 +71,14 @@ jobs:
   receipts:
     runs-on: ubuntu-latest
     steps:
+      # fetch-depth: 0, and this line is why four of the five jobs were red.
+      # actions/checkout clones with depth 1 by default, so `git log` on the
+      # runner returns exactly one commit, and tests/test_repo_hygiene.py
+      # asserts the history has at least five. The suite was green on every
+      # machine that had the history and red on the only machine that did not.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
