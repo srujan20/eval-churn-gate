@@ -1,0 +1,16 @@
+gate:
+  mean_drop: 0.02
+  alpha: 0.05
+  power: 0.8
+  bootstrap_resamples: 400
+churn:
+  pass_threshold: 0.5
+  flip_rate_limit: 0.17
+  minimum_movement: 0.01
+evaluation:
+  items: 120
+  item_sweep: [100, 300]
+  replications: 24
+noise:
+  run_sd: 0.06
+  item_sd: 0.22

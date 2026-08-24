@@ -282,3 +282,48 @@ def test_the_sweep_report_explains_why_every_rate_has_an_interval(small_policy):
     rows = sweep(small_policy, replications=4)
     html = render_sweep_html(rows, scenarios=SCENARIOS)
     assert "Wilson interval" in html
+
+
+def test_the_pairing_gain_is_undefined_when_nothing_is_detectable(small_policy, aa):
+    import math
+    from dataclasses import replace
+
+    result = replace(audit(aa, small_policy), minimum_detectable=0.0)
+    assert math.isnan(result.pairing_gain)
+
+
+def test_a_run_reports_its_own_mean(aa):
+    assert aa.baseline.mean == pytest.approx(float(aa.baseline.scores.mean()))
+
+
+def test_a_sweep_cell_is_uncoloured_when_it_has_no_denominator():
+    from churngate.rates import Rate
+    from churngate.report import _class_for
+
+    assert _class_for("aa", "churn", Rate(0, 0)) == ""
+
+
+def test_a_slice_with_one_item_is_skipped_by_the_scan(small_policy):
+    """One item has no spread and no sign worth trusting, so it carries no vote."""
+    from churngate.gates import slice_scan
+
+    labels = ("alpha",) + tuple("beta" for _ in range(40))
+    baseline = [0.5 + 0.001 * index for index in range(41)]
+    candidate = [value - 0.05 for value in baseline]
+    decision = slice_scan(_pair_with(baseline, candidate, labels), small_policy)
+    assert "alpha" not in decision.note
+
+
+def _pair_with(baseline, candidate, labels):
+    import numpy as np
+
+    from churngate.runs import Comparison, Run
+
+    ids = tuple(range(len(baseline)))
+    return Comparison(
+        baseline=Run(version="a", seed=1, item_ids=ids, scores=np.array(baseline), slices=labels),
+        candidate=Run(version="b", seed=2, item_ids=ids, scores=np.array(candidate), slices=labels),
+        scenario="aa",
+        true_effect=0.0,
+        truth_is_exact=True,
+    )

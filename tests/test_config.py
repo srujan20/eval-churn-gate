@@ -161,3 +161,9 @@ def test_a_tiny_item_override_is_refused(small_policy):
 def test_a_policy_is_frozen(small_policy):
     with pytest.raises(AttributeError):
         small_policy.gate.alpha = 0.5
+
+
+def test_a_non_numeric_probability_is_refused(minimal_policy_mapping):
+    minimal_policy_mapping["gate"]["alpha"] = "loose"
+    with pytest.raises(PolicyError, match="must be a number"):
+        policy_from_mapping(minimal_policy_mapping)
