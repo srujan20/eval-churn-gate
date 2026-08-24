@@ -19,8 +19,8 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install ruff
-      - run: ruff check src tests tools experiments
-      - run: ruff format --check src tests tools experiments
+      - run: ruff check src tests tools experiments benchmark
+      - run: ruff format --check src tests tools experiments benchmark
 
   # Installs without any extra beyond dev, which is the job that catches an
   # optional dependency imported at module scope. xgboost is a supported

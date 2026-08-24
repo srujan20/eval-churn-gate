@@ -57,6 +57,7 @@ STRUCTURAL_NUMBERS = {
     "7": "a claim heading number in the README",
     "100": "a size in the item sweep",
     "300": "the shipped eval set size, and a size in the sweep",
+    "500": "a size in the latency benchmark",
     "1000": "a size in the item sweep, and the replication count",
     "3000": "a size in the item sweep, and a replication count in the war story",
     "10000": "a size in the item sweep",

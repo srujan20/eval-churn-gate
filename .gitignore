@@ -15,3 +15,4 @@ dist/
 junit.xml
 reports/
 venv/
+benchmark/results/*.tmp

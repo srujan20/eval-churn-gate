@@ -44,7 +44,7 @@ SKIP_DIRECTORIES = {
     "build",
     "dist",
 }
-OPTIONAL_MODULES = ("playwright", "cmarkgfm")
+OPTIONAL_MODULES = ("playwright", "cmarkgfm", "matplotlib")
 DEFERRED_MODULES = ()
 
 # Built from code points rather than written out, so this file does not itself
@@ -200,13 +200,14 @@ def test_no_source_file_imports_a_network_library():
     assert offenders == []
 
 
-def test_no_experiment_imports_a_network_library():
+def test_no_experiment_or_benchmark_imports_a_network_library():
     offenders: list[str] = []
-    for path in (REPO / "experiments").rglob("*.py"):
-        content = path.read_text(encoding="utf-8")
-        for module in NETWORK_MODULES:
-            if re.search(rf"^\s*(import|from)\s+{module}\b", content, re.MULTILINE):
-                offenders.append(f"{path.relative_to(REPO)}:{module}")
+    for directory in ("experiments", "benchmark"):
+        for path in (REPO / directory).rglob("*.py"):
+            content = path.read_text(encoding="utf-8")
+            for module in NETWORK_MODULES:
+                if re.search(rf"^\s*(import|from)\s+{module}\b", content, re.MULTILINE):
+                    offenders.append(f"{path.relative_to(REPO)}:{module}")
     assert offenders == []
 
 

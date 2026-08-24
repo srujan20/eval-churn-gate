@@ -9,6 +9,153 @@
     "aa_pass_share": [
       "passed only {}"
     ],
+    "bench_bootstrap_share": [
+      "{} of the total cost"
+    ],
+    "bench_largest_items": [
+      "out to {} items"
+    ],
+    "bench_largest_p50_ms": [
+      "{} ms at the largest"
+    ],
+    "bench_largest_p95_ms": [
+      "p95 rises to {} ms"
+    ],
+    "bench_linearity": [
+      "a linearity ratio of {}"
+    ],
+    "bench_matrix_mb": [
+      "allocates {} MB"
+    ],
+    "bench_mean_threshold_ms": [
+      "mean threshold gate costs {} ms"
+    ],
+    "bench_python": [
+      "Python {}"
+    ],
+    "bench_repeats": [
+      "{} timed repeats"
+    ],
+    "bench_shipped_p50_ms": [
+      "decides in {} ms"
+    ],
+    "bench_shipped_p95_ms": [
+      "p95 of {} ms"
+    ],
+    "bench_slice_scan_ms": [
+      "slice scan costs {} ms"
+    ],
+    "bench_slice_scan_ratio": [
+      "{} times cheaper than the total"
+    ],
+    "bench_tail_ratio": [
+      "p99 is {} times p50"
+    ],
+    "cell_bench_10000_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_10000_p50": [
+      "| {} |"
+    ],
+    "cell_bench_10000_p95": [
+      "| {} |"
+    ],
+    "cell_bench_10000_p99": [
+      "| {} |"
+    ],
+    "cell_bench_10000_slice_scan": [
+      "| {} |"
+    ],
+    "cell_bench_1000_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_1000_p50": [
+      "| {} |"
+    ],
+    "cell_bench_1000_p95": [
+      "| {} |"
+    ],
+    "cell_bench_1000_p99": [
+      "| {} |"
+    ],
+    "cell_bench_1000_slice_scan": [
+      "| {} |"
+    ],
+    "cell_bench_20000_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_20000_p50": [
+      "| {} |"
+    ],
+    "cell_bench_20000_p95": [
+      "| {} |"
+    ],
+    "cell_bench_20000_p99": [
+      "| {} |"
+    ],
+    "cell_bench_20000_slice_scan": [
+      "| {} |"
+    ],
+    "cell_bench_2000_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_2000_p50": [
+      "| {} |"
+    ],
+    "cell_bench_2000_p95": [
+      "| {} |"
+    ],
+    "cell_bench_2000_p99": [
+      "| {} |"
+    ],
+    "cell_bench_2000_slice_scan": [
+      "| {} |"
+    ],
+    "cell_bench_300_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_300_p50": [
+      "| {} |"
+    ],
+    "cell_bench_300_p95": [
+      "| {} |"
+    ],
+    "cell_bench_300_p99": [
+      "| {} |"
+    ],
+    "cell_bench_300_slice_scan": [
+      "| {} |"
+    ],
+    "cell_bench_5000_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_5000_p50": [
+      "| {} |"
+    ],
+    "cell_bench_5000_p95": [
+      "| {} |"
+    ],
+    "cell_bench_5000_p99": [
+      "| {} |"
+    ],
+    "cell_bench_5000_slice_scan": [
+      "| {} |"
+    ],
+    "cell_bench_500_matrix": [
+      "| {} |"
+    ],
+    "cell_bench_500_p50": [
+      "| {} |"
+    ],
+    "cell_bench_500_p95": [
+      "| {} |"
+    ],
+    "cell_bench_500_p99": [
+      "| {} |"
+    ],
+    "cell_bench_500_slice_scan": [
+      "| {} |"
+    ],
     "cell_churn_aa": [
       "| {} |"
     ],
@@ -307,6 +454,55 @@
     "aa_block_share": 0.069,
     "aa_comparisons": 1000,
     "aa_pass_share": 0.003,
+    "bench_bootstrap_share": 0.479,
+    "bench_largest_items": 20000,
+    "bench_largest_p50_ms": 707.7,
+    "bench_largest_p95_ms": 1723.1,
+    "bench_linearity": 0.71,
+    "bench_matrix_mb": 305.2,
+    "bench_mean_threshold_ms": 0.015,
+    "bench_python": "3.11.15",
+    "bench_repeats": 15,
+    "bench_shipped_p50_ms": 14.9,
+    "bench_shipped_p95_ms": 16.6,
+    "bench_slice_scan_ms": 5.6,
+    "bench_slice_scan_ratio": 126,
+    "bench_tail_ratio": 2.76,
+    "cell_bench_10000_matrix": 152.6,
+    "cell_bench_10000_p50": 340.5,
+    "cell_bench_10000_p95": 718.2,
+    "cell_bench_10000_p99": 1047.7,
+    "cell_bench_10000_slice_scan": 3.8,
+    "cell_bench_1000_matrix": 15.3,
+    "cell_bench_1000_p50": 31.0,
+    "cell_bench_1000_p95": 32.4,
+    "cell_bench_1000_p99": 32.8,
+    "cell_bench_1000_slice_scan": 1.9,
+    "cell_bench_20000_matrix": 305.2,
+    "cell_bench_20000_p50": 707.7,
+    "cell_bench_20000_p95": 1723.1,
+    "cell_bench_20000_p99": 1954.6,
+    "cell_bench_20000_slice_scan": 5.6,
+    "cell_bench_2000_matrix": 30.5,
+    "cell_bench_2000_p50": 53.8,
+    "cell_bench_2000_p95": 55.7,
+    "cell_bench_2000_p99": 60.0,
+    "cell_bench_2000_slice_scan": 2.2,
+    "cell_bench_300_matrix": 4.6,
+    "cell_bench_300_p50": 14.9,
+    "cell_bench_300_p95": 16.6,
+    "cell_bench_300_p99": 16.6,
+    "cell_bench_300_slice_scan": 1.8,
+    "cell_bench_5000_matrix": 76.3,
+    "cell_bench_5000_p50": 166.5,
+    "cell_bench_5000_p95": 175.2,
+    "cell_bench_5000_p99": 356.5,
+    "cell_bench_5000_slice_scan": 2.7,
+    "cell_bench_500_matrix": 7.6,
+    "cell_bench_500_p50": 19.8,
+    "cell_bench_500_p95": 20.5,
+    "cell_bench_500_p99": 22.4,
+    "cell_bench_500_slice_scan": 1.9,
     "cell_churn_aa": 0.003,
     "cell_churn_churn_only": 1.0,
     "cell_churn_compensating": 0.135,

@@ -86,6 +86,20 @@ ANCHORS: dict[str, list[str]] = {
     "mean_threshold_zero_denominator": ["over {} clean releases"],
     "churn_detection": ["catches {} overall"],
     "churn_false_block": ["blocking only {}"],
+    "bench_shipped_p50_ms": ["decides in {} ms"],
+    "bench_shipped_p95_ms": ["p95 of {} ms"],
+    "bench_largest_items": ["out to {} items"],
+    "bench_largest_p50_ms": ["{} ms at the largest"],
+    "bench_largest_p95_ms": ["p95 rises to {} ms"],
+    "bench_linearity": ["a linearity ratio of {}"],
+    "bench_tail_ratio": ["p99 is {} times p50"],
+    "bench_bootstrap_share": ["{} of the total cost"],
+    "bench_slice_scan_ms": ["slice scan costs {} ms"],
+    "bench_mean_threshold_ms": ["mean threshold gate costs {} ms"],
+    "bench_slice_scan_ratio": ["{} times cheaper than the total"],
+    "bench_matrix_mb": ["allocates {} MB"],
+    "bench_repeats": ["{} timed repeats"],
+    "bench_python": ["Python {}"],
 }
 
 CELL_ANCHOR = ["| {} |"]
@@ -154,6 +168,17 @@ def three(value: float) -> float:
     return round(value, 3)
 
 
+def ms(value: float) -> float:
+    """A duration rounded for prose: one decimal above a millisecond, three below.
+
+    The benchmark JSON keeps three decimals throughout. Rounding happens here, at
+    the point where a number becomes a sentence, because "decides in 14.945 ms" is
+    a false precision on a two vCPU container and "0.0 ms" would erase a gate that
+    genuinely costs fifteen microseconds.
+    """
+    return round(value, 1) if value >= 1.0 else round(value, 3)
+
+
 def four(value: float) -> float:
     return round(value, 4)
 
@@ -177,6 +202,21 @@ def build_metrics(*, skip_tests: bool, skip_experiments: bool) -> dict[str, obje
     at_threshold = exp03["detection_by_effect"][f"{exp03['mean_drop']:.3f}"]
     zero = exp05["measured_zeros"].get("mean_threshold")
     first_power = exp03["power_by_items"][1]
+    # Read rather than re-run, and this is the one figure family in the registry
+    # that is not re-measured on every push. A duration measured on a GitHub runner
+    # is a different measurement from one measured on the machine the README
+    # describes, so re-timing in CI would fail the check for the honest reason that
+    # the hardware changed. The committed JSON is the measurement; `make bench`
+    # rewrites it, and the diff is reviewed like any other file.
+    latency = REPO / "benchmark/results/gate_latency.json"
+    if not latency.is_file():
+        raise SystemExit(
+            f"{latency.relative_to(REPO)} is missing, so the latency table cannot be "
+            "checked. Run: make bench"
+        )
+    bench = json.loads(latency.read_text(encoding="utf-8"))
+    shipped_row = bench["rows"][0]
+    largest_row = bench["rows"][-1]
 
     metrics: dict[str, object] = {
         "tests_total": tests_total,
@@ -246,6 +286,32 @@ def build_metrics(*, skip_tests: bool, skip_experiments: bool) -> dict[str, obje
         key = effect.replace(".", "_")
         metrics[f"cell_effect_{key}_mean"] = three(entry["mean_threshold"]["value"])
         metrics[f"cell_effect_{key}_paired"] = three(entry["paired_bootstrap"]["value"])
+
+    # The latency table. Every value is read from the benchmark's own JSON rather
+    # than recomputed here, so the chart, the table and this registry are three
+    # renderings of one measurement.
+    metrics["bench_repeats"] = bench["repeats"]
+    metrics["bench_python"] = bench["hardware"]["python"]
+    metrics["bench_shipped_p50_ms"] = ms(shipped_row["p50_ms"])
+    metrics["bench_shipped_p95_ms"] = ms(shipped_row["p95_ms"])
+    metrics["bench_largest_items"] = largest_row["items"]
+    metrics["bench_largest_p50_ms"] = ms(largest_row["p50_ms"])
+    metrics["bench_largest_p95_ms"] = ms(largest_row["p95_ms"])
+    metrics["bench_linearity"] = bench["linearity"]
+    metrics["bench_tail_ratio"] = round(bench["p99_over_p50_at_largest"], 2)
+    metrics["bench_bootstrap_share"] = largest_row["slowest_gate_share"]
+    metrics["bench_slice_scan_ms"] = ms(largest_row["per_gate_ms"]["slice_scan"])
+    metrics["bench_mean_threshold_ms"] = ms(largest_row["per_gate_ms"]["mean_threshold"])
+    metrics["bench_slice_scan_ratio"] = int(
+        round(largest_row["p50_ms"] / largest_row["per_gate_ms"]["slice_scan"])
+    )
+    metrics["bench_matrix_mb"] = largest_row["bootstrap_matrix_mb"]
+    for row in bench["rows"]:
+        metrics[f"cell_bench_{row['items']}_p50"] = ms(row["p50_ms"])
+        metrics[f"cell_bench_{row['items']}_p95"] = ms(row["p95_ms"])
+        metrics[f"cell_bench_{row['items']}_p99"] = ms(row["p99_ms"])
+        metrics[f"cell_bench_{row['items']}_slice_scan"] = ms(row["per_gate_ms"]["slice_scan"])
+        metrics[f"cell_bench_{row['items']}_matrix"] = row["bootstrap_matrix_mb"]
 
     for name in metrics:
         if name.startswith("cell_"):
