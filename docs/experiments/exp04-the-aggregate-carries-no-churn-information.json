@@ -1,0 +1,42 @@
+{
+  "by_scenario": {
+    "aa": {
+      "comparisons": 721,
+      "median_delta": -0.0001914890776307291,
+      "median_flip_rate": 0.11666666666666667,
+      "median_hidden_share": 0.8947368421052632
+    },
+    "churn_only": {
+      "comparisons": 712,
+      "median_delta": 2.361064884396728e-05,
+      "median_flip_rate": 0.48333333333333334,
+      "median_hidden_share": 0.9748417721518987
+    },
+    "compensating": {
+      "comparisons": 700,
+      "median_delta": -0.0003552480422729363,
+      "median_flip_rate": 0.14666666666666667,
+      "median_hidden_share": 0.9130434782608696
+    }
+  },
+  "conclusion": "no function of the aggregate delta can bound the churn, because across comparisons with the same delta the churn varies by a factor of several and the rank correlation between them is near zero",
+  "correlation_exact_truth": {
+    "n": 2000.0,
+    "p_value": 0.9038380915711989,
+    "spearman_rho": -0.002703175806184036
+  },
+  "correlation_near_zero": {
+    "n": 2133.0,
+    "p_value": 0.9625177579756432,
+    "spearman_rho": -0.0010181328305331227
+  },
+  "exact_truth_comparisons": 2000,
+  "experiment": "exp04-the-aggregate-carries-no-churn-information",
+  "flip_rate_max": 0.5933333333333334,
+  "flip_rate_median": 0.15,
+  "flip_rate_min": 0.06666666666666667,
+  "flip_rate_spread": 0.5266666666666667,
+  "near_zero_comparisons": 2133,
+  "near_zero_window": 0.005,
+  "question": "does the aggregate delta carry any information about the churn"
+}

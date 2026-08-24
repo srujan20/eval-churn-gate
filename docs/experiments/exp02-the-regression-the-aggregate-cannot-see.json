@@ -1,0 +1,287 @@
+{
+  "aggregate_gates_indistinguishable_from_noise": [],
+  "churn_only_comparisons": 1000,
+  "compensating_comparisons": 1000,
+  "detection_churn_only": {
+    "churn": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 1.0,
+      "interval_low": 0.996173241514445,
+      "interval_width": 0.0038267584855550263,
+      "is_measured_zero": false,
+      "numerator": 1000,
+      "resolution_floor": 0.001,
+      "value": 1.0
+    },
+    "combined": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 1.0,
+      "interval_low": 0.996173241514445,
+      "interval_width": 0.0038267584855550263,
+      "is_measured_zero": false,
+      "numerator": 1000,
+      "resolution_floor": 0.001,
+      "value": 1.0
+    },
+    "mean_threshold": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.0038267584855551234,
+      "interval_low": 2.168404344971009e-19,
+      "interval_width": 0.0038267584855551234,
+      "is_measured_zero": true,
+      "numerator": 0,
+      "resolution_floor": 0.001,
+      "value": 0.0
+    },
+    "paired_bootstrap": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.0038267584855551234,
+      "interval_low": 2.168404344971009e-19,
+      "interval_width": 0.0038267584855551234,
+      "is_measured_zero": true,
+      "numerator": 0,
+      "resolution_floor": 0.001,
+      "value": 0.0
+    },
+    "paired_t": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.0038267584855551234,
+      "interval_low": 2.168404344971009e-19,
+      "interval_width": 0.0038267584855551234,
+      "is_measured_zero": true,
+      "numerator": 0,
+      "resolution_floor": 0.001,
+      "value": 0.0
+    },
+    "slice_scan": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.04017018319759311,
+      "interval_low": 0.019442276812770925,
+      "interval_width": 0.020727906384822182,
+      "is_measured_zero": false,
+      "numerator": 28,
+      "resolution_floor": 0.001,
+      "value": 0.028
+    }
+  },
+  "detection_compensating": {
+    "churn": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.15758215520279512,
+      "interval_low": 0.11521137849166019,
+      "interval_width": 0.04237077671113493,
+      "is_measured_zero": false,
+      "numerator": 135,
+      "resolution_floor": 0.001,
+      "value": 0.135
+    },
+    "combined": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 1.0,
+      "interval_low": 0.996173241514445,
+      "interval_width": 0.0038267584855550263,
+      "is_measured_zero": false,
+      "numerator": 1000,
+      "resolution_floor": 0.001,
+      "value": 1.0
+    },
+    "mean_threshold": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.0038267584855551234,
+      "interval_low": 2.168404344971009e-19,
+      "interval_width": 0.0038267584855551234,
+      "is_measured_zero": true,
+      "numerator": 0,
+      "resolution_floor": 0.001,
+      "value": 0.0
+    },
+    "paired_bootstrap": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.03308567334739963,
+      "interval_low": 0.014572707764791058,
+      "interval_width": 0.018512965582608575,
+      "is_measured_zero": false,
+      "numerator": 22,
+      "resolution_floor": 0.001,
+      "value": 0.022
+    },
+    "paired_t": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.03308567334739963,
+      "interval_low": 0.014572707764791058,
+      "interval_width": 0.018512965582608575,
+      "is_measured_zero": false,
+      "numerator": 22,
+      "resolution_floor": 0.001,
+      "value": 0.022
+    },
+    "slice_scan": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 1.0,
+      "interval_low": 0.996173241514445,
+      "interval_width": 0.0038267584855550263,
+      "is_measured_zero": false,
+      "numerator": 1000,
+      "resolution_floor": 0.001,
+      "value": 1.0
+    }
+  },
+  "experiment": "exp02-the-regression-the-aggregate-cannot-see",
+  "false_block_aa": {
+    "churn": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.008783014053503173,
+      "interval_low": 0.0010207838811386186,
+      "interval_width": 0.007762230172364554,
+      "is_measured_zero": false,
+      "numerator": 3,
+      "resolution_floor": 0.001,
+      "value": 0.003
+    },
+    "combined": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.08421205324186688,
+      "interval_low": 0.053101919606623846,
+      "interval_width": 0.031110133635243037,
+      "is_measured_zero": false,
+      "numerator": 67,
+      "resolution_floor": 0.001,
+      "value": 0.067
+    },
+    "mean_threshold": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.0038267584855551234,
+      "interval_low": 2.168404344971009e-19,
+      "interval_width": 0.0038267584855551234,
+      "is_measured_zero": true,
+      "numerator": 0,
+      "resolution_floor": 0.001,
+      "value": 0.0
+    },
+    "paired_bootstrap": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.05286931041950135,
+      "interval_low": 0.02865896090418048,
+      "interval_width": 0.024210349515320872,
+      "is_measured_zero": false,
+      "numerator": 39,
+      "resolution_floor": 0.001,
+      "value": 0.039
+    },
+    "paired_t": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.05400964412125796,
+      "interval_low": 0.02951097368545276,
+      "interval_width": 0.024498670435805198,
+      "is_measured_zero": false,
+      "numerator": 40,
+      "resolution_floor": 0.001,
+      "value": 0.04
+    },
+    "slice_scan": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.05286931041950135,
+      "interval_low": 0.02865896090418048,
+      "interval_width": 0.024210349515320872,
+      "is_measured_zero": false,
+      "numerator": 39,
+      "resolution_floor": 0.001,
+      "value": 0.039
+    }
+  },
+  "median_aggregate_delta": -0.0005598665742661991,
+  "median_slice_effect": -0.11726578374880572,
+  "question": "who notices a regression the aggregate cannot represent",
+  "verdicts": {
+    "churn_only": {
+      "candidate-passes": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.0038267584855551234,
+        "interval_low": 2.168404344971009e-19,
+        "interval_width": 0.0038267584855551234,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.001,
+        "value": 0.0
+      },
+      "eval-set-cannot-resolve-this": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.0038267584855551234,
+        "interval_low": 2.168404344971009e-19,
+        "interval_width": 0.0038267584855551234,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.001,
+        "value": 0.0
+      },
+      "regression-detected": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      }
+    },
+    "compensating": {
+      "candidate-passes": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.0038267584855551234,
+        "interval_low": 2.168404344971009e-19,
+        "interval_width": 0.0038267584855551234,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.001,
+        "value": 0.0
+      },
+      "eval-set-cannot-resolve-this": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.0038267584855551234,
+        "interval_low": 2.168404344971009e-19,
+        "interval_width": 0.0038267584855551234,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.001,
+        "value": 0.0
+      },
+      "regression-detected": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      }
+    }
+  },
+  "worst_aggregate_delta": -0.01382346806392948,
+  "worst_slice_effect": -0.11999999999999998
+}

@@ -1,0 +1,306 @@
+{
+  "alpha": 0.05,
+  "coin_flip_at_the_threshold": {
+    "confidence": 0.95,
+    "denominator": 1000,
+    "interval_high": 0.48597756226511246,
+    "interval_low": 0.42436684599858754,
+    "interval_width": 0.06161071626652492,
+    "is_measured_zero": false,
+    "numerator": 455,
+    "resolution_floor": 0.001,
+    "value": 0.455
+  },
+  "detection_by_effect": {
+    "0.000": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.11583512075793179,
+        "interval_low": 0.07925690009839675,
+        "interval_width": 0.03657822065953503,
+        "is_measured_zero": false,
+        "numerator": 96,
+        "resolution_floor": 0.001,
+        "value": 0.096
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.0038267584855551234,
+        "interval_low": 2.168404344971009e-19,
+        "interval_width": 0.0038267584855551234,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.001,
+        "value": 0.0
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.07090838767737563,
+        "interval_low": 0.04249742737476844,
+        "interval_width": 0.02841096030260719,
+        "is_measured_zero": false,
+        "numerator": 55,
+        "resolution_floor": 0.001,
+        "value": 0.055
+      }
+    },
+    "0.005": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.34241026871999,
+        "interval_low": 0.28502093895360764,
+        "interval_width": 0.057389329766382335,
+        "is_measured_zero": false,
+        "numerator": 313,
+        "resolution_floor": 0.001,
+        "value": 0.313
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.0038267584855551234,
+        "interval_low": 2.168404344971009e-19,
+        "interval_width": 0.0038267584855551234,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.001,
+        "value": 0.0
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.30863007292105105,
+        "interval_low": 0.25305370081259326,
+        "interval_width": 0.05557637210845778,
+        "is_measured_zero": false,
+        "numerator": 280,
+        "resolution_floor": 0.001,
+        "value": 0.28
+      }
+    },
+    "0.010": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.681867041246333,
+        "interval_low": 0.6229619706570872,
+        "interval_width": 0.05890507058924577,
+        "is_measured_zero": false,
+        "numerator": 653,
+        "resolution_floor": 0.001,
+        "value": 0.653
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.028273255170507345,
+        "interval_low": 0.011415740009567788,
+        "interval_width": 0.016857515160939557,
+        "is_measured_zero": false,
+        "numerator": 18,
+        "resolution_floor": 0.001,
+        "value": 0.018
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.6466272686303917,
+        "interval_low": 0.5864772698839885,
+        "interval_width": 0.060149998746403144,
+        "is_measured_zero": false,
+        "numerator": 617,
+        "resolution_floor": 0.001,
+        "value": 0.617
+      }
+    },
+    "0.020": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.9952579393325229,
+        "interval_low": 0.982984183834662,
+        "interval_width": 0.012273755497860916,
+        "is_measured_zero": false,
+        "numerator": 991,
+        "resolution_floor": 0.001,
+        "value": 0.991
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.48597756226511246,
+        "interval_low": 0.42436684599858754,
+        "interval_width": 0.06161071626652492,
+        "is_measured_zero": false,
+        "numerator": 455,
+        "resolution_floor": 0.001,
+        "value": 0.455
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.9945592455544707,
+        "interval_low": 0.9816905311296853,
+        "interval_width": 0.012868714424785432,
+        "is_measured_zero": false,
+        "numerator": 990,
+        "resolution_floor": 0.001,
+        "value": 0.99
+      }
+    },
+    "0.030": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 0.9813786172257051,
+        "interval_low": 0.9610012692469598,
+        "interval_width": 0.02037734797874524,
+        "is_measured_zero": false,
+        "numerator": 973,
+        "resolution_floor": 0.001,
+        "value": 0.973
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      }
+    },
+    "0.050": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      }
+    },
+    "0.080": {
+      "combined": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      },
+      "mean_threshold": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      },
+      "paired_bootstrap": {
+        "confidence": 0.95,
+        "denominator": 1000,
+        "interval_high": 1.0,
+        "interval_low": 0.996173241514445,
+        "interval_width": 0.0038267584855550263,
+        "is_measured_zero": false,
+        "numerator": 1000,
+        "resolution_floor": 0.001,
+        "value": 1.0
+      }
+    }
+  },
+  "experiment": "exp03-what-the-eval-set-can-resolve",
+  "items_needed_paired": 112,
+  "items_needed_unpaired": 1608,
+  "mean_drop": 0.02,
+  "pairing_gain": 3.8005847503304593,
+  "power": 0.8,
+  "power_by_items": [
+    {
+      "gain": 3.8005847503304593,
+      "items": 100,
+      "paired": 0.021098438821520026,
+      "resolves_the_threshold": false,
+      "unpaired": 0.08018640484084916
+    },
+    {
+      "gain": 3.8005847503304597,
+      "items": 300,
+      "paired": 0.012181189333085434,
+      "resolves_the_threshold": true,
+      "unpaired": 0.046295642420212564
+    },
+    {
+      "gain": 3.8005847503304597,
+      "items": 1000,
+      "paired": 0.006671912174972204,
+      "resolves_the_threshold": true,
+      "unpaired": 0.02535716766774349
+    },
+    {
+      "gain": 3.8005847503304597,
+      "items": 3000,
+      "paired": 0.0038520302902297432,
+      "resolves_the_threshold": true,
+      "unpaired": 0.014639967578858177
+    },
+    {
+      "gain": 3.8005847503304606,
+      "items": 10000,
+      "paired": 0.002109843882152002,
+      "resolves_the_threshold": true,
+      "unpaired": 0.008018640484084917
+    }
+  ],
+  "question": "what can this eval set resolve, and what does a threshold gate detect",
+  "shipped_items": 300
+}

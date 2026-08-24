@@ -1,0 +1,128 @@
+{
+  "alpha": 0.05,
+  "churn_floor": {
+    "configured_limit": 0.17,
+    "first_limit_written_by_hand": 0.06,
+    "max": 0.18333333333333332,
+    "median": 0.11666666666666667,
+    "p95": 0.14666666666666667
+  },
+  "comparisons": 1000,
+  "distinguishable_from_alpha": {
+    "churn": true,
+    "combined": true,
+    "mean_threshold": true,
+    "paired_bootstrap": false,
+    "paired_t": false,
+    "slice_scan": false
+  },
+  "experiment": "exp01-the-gate-graded-against-nothing",
+  "false_block_rates": {
+    "churn": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.008783014053503173,
+      "interval_low": 0.0010207838811386186,
+      "interval_width": 0.007762230172364554,
+      "is_measured_zero": false,
+      "numerator": 3,
+      "resolution_floor": 0.001,
+      "value": 0.003
+    },
+    "combined": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.08421205324186688,
+      "interval_low": 0.053101919606623846,
+      "interval_width": 0.031110133635243037,
+      "is_measured_zero": false,
+      "numerator": 67,
+      "resolution_floor": 0.001,
+      "value": 0.067
+    },
+    "mean_threshold": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.0038267584855551234,
+      "interval_low": 2.168404344971009e-19,
+      "interval_width": 0.0038267584855551234,
+      "is_measured_zero": true,
+      "numerator": 0,
+      "resolution_floor": 0.001,
+      "value": 0.0
+    },
+    "paired_bootstrap": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.05286931041950135,
+      "interval_low": 0.02865896090418048,
+      "interval_width": 0.024210349515320872,
+      "is_measured_zero": false,
+      "numerator": 39,
+      "resolution_floor": 0.001,
+      "value": 0.039
+    },
+    "paired_t": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.05400964412125796,
+      "interval_low": 0.02951097368545276,
+      "interval_width": 0.024498670435805198,
+      "is_measured_zero": false,
+      "numerator": 40,
+      "resolution_floor": 0.001,
+      "value": 0.04
+    },
+    "slice_scan": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.05286931041950135,
+      "interval_low": 0.02865896090418048,
+      "interval_width": 0.024210349515320872,
+      "is_measured_zero": false,
+      "numerator": 39,
+      "resolution_floor": 0.001,
+      "value": 0.039
+    }
+  },
+  "median_hidden_share": 0.8888888888888888,
+  "observed_delta_sd": 0.004591149304325334,
+  "predicted_delta_sd": 0.004898979485566356,
+  "question": "what does each gate do when there is provably nothing to find",
+  "verdicts": {
+    "candidate-passes": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.008783014053503173,
+      "interval_low": 0.0010207838811386186,
+      "interval_width": 0.007762230172364554,
+      "is_measured_zero": false,
+      "numerator": 3,
+      "resolution_floor": 0.001,
+      "value": 0.003
+    },
+    "eval-set-cannot-resolve-this": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.9424360783190856,
+      "interval_low": 0.9102882164172793,
+      "interval_width": 0.032147861901806296,
+      "is_measured_zero": false,
+      "numerator": 928,
+      "resolution_floor": 0.001,
+      "value": 0.928
+    },
+    "regression-detected": {
+      "confidence": 0.95,
+      "denominator": 1000,
+      "interval_high": 0.08641472022863728,
+      "interval_low": 0.054883945585911253,
+      "interval_width": 0.03153077464272602,
+      "is_measured_zero": false,
+      "numerator": 69,
+      "resolution_floor": 0.001,
+      "value": 0.069
+    }
+  },
+  "why_this_is_exact": "an A/A comparison is the same version scored twice, so the noiseless scores are identical and the true effect is zero by construction rather than by measurement"
+}

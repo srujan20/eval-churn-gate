@@ -1,0 +1,224 @@
+{
+  "alpha": 0.05,
+  "clean_scenarios": [
+    "aa",
+    "improvement"
+  ],
+  "combined_distinguishable_from_alpha": true,
+  "combined_false_block": {
+    "confidence": 0.95,
+    "denominator": 1000,
+    "interval_high": 0.08421205324186688,
+    "interval_low": 0.053101919606623846,
+    "interval_width": 0.031110133635243037,
+    "is_measured_zero": false,
+    "numerator": 67,
+    "resolution_floor": 0.001,
+    "value": 0.067
+  },
+  "comparisons": 5000,
+  "experiment": "exp05-what-the-combined-gate-costs",
+  "interval_only_false_block": {
+    "confidence": 0.95,
+    "denominator": 1000,
+    "interval_high": 0.05286931041950135,
+    "interval_low": 0.02865896090418048,
+    "interval_width": 0.024210349515320872,
+    "is_measured_zero": false,
+    "numerator": 39,
+    "resolution_floor": 0.001,
+    "value": 0.039
+  },
+  "measured_zeros": {
+    "mean_threshold": {
+      "rate": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.001917047281252934,
+        "interval_low": 1.0842021724855044e-19,
+        "interval_width": 0.001917047281252934,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.0005,
+        "value": 0.0
+      },
+      "samples_needed": {
+        "0.001": 1000,
+        "0.01": 100,
+        "0.05": 20
+      }
+    }
+  },
+  "question": "which gate to ship, and what each one costs",
+  "regression_scenarios": [
+    "uniform",
+    "compensating",
+    "churn_only"
+  ],
+  "summary": {
+    "churn": {
+      "detection": {
+        "confidence": 0.95,
+        "denominator": 3000,
+        "interval_high": 0.40120587029002436,
+        "interval_low": 0.3664250085134015,
+        "interval_width": 0.03478086177662287,
+        "is_measured_zero": false,
+        "numerator": 1151,
+        "resolution_floor": 0.0003333333333333333,
+        "value": 0.38366666666666666
+      },
+      "false_block": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.009822062751615332,
+        "interval_low": 0.003073897009543817,
+        "interval_width": 0.006748165742071515,
+        "is_measured_zero": false,
+        "numerator": 11,
+        "resolution_floor": 0.0005,
+        "value": 0.0055
+      },
+      "scenarios_missed": [
+        "uniform",
+        "compensating"
+      ]
+    },
+    "combined": {
+      "detection": {
+        "confidence": 0.95,
+        "denominator": 3000,
+        "interval_high": 1.0,
+        "interval_low": 0.9987211512746742,
+        "interval_width": 0.0012788487253257985,
+        "is_measured_zero": false,
+        "numerator": 3000,
+        "resolution_floor": 0.0003333333333333333,
+        "value": 1.0
+      },
+      "false_block": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.04675201217192855,
+        "interval_low": 0.030021256563230403,
+        "interval_width": 0.016730755608698147,
+        "is_measured_zero": false,
+        "numerator": 75,
+        "resolution_floor": 0.0005,
+        "value": 0.0375
+      },
+      "scenarios_missed": []
+    },
+    "mean_threshold": {
+      "detection": {
+        "confidence": 0.95,
+        "denominator": 3000,
+        "interval_high": 0.3399505413093449,
+        "interval_low": 0.3065021711394206,
+        "interval_width": 0.0334483701699243,
+        "is_measured_zero": false,
+        "numerator": 969,
+        "resolution_floor": 0.0003333333333333333,
+        "value": 0.323
+      },
+      "false_block": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.001917047281252934,
+        "interval_low": 1.0842021724855044e-19,
+        "interval_width": 0.001917047281252934,
+        "is_measured_zero": true,
+        "numerator": 0,
+        "resolution_floor": 0.0005,
+        "value": 0.0
+      },
+      "scenarios_missed": [
+        "compensating",
+        "churn_only"
+      ]
+    },
+    "paired_bootstrap": {
+      "detection": {
+        "confidence": 0.95,
+        "denominator": 3000,
+        "interval_high": 0.3578199852332915,
+        "interval_low": 0.32392087456051233,
+        "interval_width": 0.033899110672779176,
+        "is_measured_zero": false,
+        "numerator": 1022,
+        "resolution_floor": 0.0003333333333333333,
+        "value": 0.3406666666666667
+      },
+      "false_block": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.026545026088593226,
+        "interval_low": 0.014297256348690845,
+        "interval_width": 0.012247769739902381,
+        "is_measured_zero": false,
+        "numerator": 39,
+        "resolution_floor": 0.0005,
+        "value": 0.0195
+      },
+      "scenarios_missed": [
+        "compensating",
+        "churn_only"
+      ]
+    },
+    "paired_t": {
+      "detection": {
+        "confidence": 0.95,
+        "denominator": 3000,
+        "interval_high": 0.3578199852332915,
+        "interval_low": 0.32392087456051233,
+        "interval_width": 0.033899110672779176,
+        "is_measured_zero": false,
+        "numerator": 1022,
+        "resolution_floor": 0.0003333333333333333,
+        "value": 0.3406666666666667
+      },
+      "false_block": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.027118639188737373,
+        "interval_low": 0.014721726201265444,
+        "interval_width": 0.012396912987471928,
+        "is_measured_zero": false,
+        "numerator": 40,
+        "resolution_floor": 0.0005,
+        "value": 0.02
+      },
+      "scenarios_missed": [
+        "compensating",
+        "churn_only"
+      ]
+    },
+    "slice_scan": {
+      "detection": {
+        "confidence": 0.95,
+        "denominator": 3000,
+        "interval_high": 0.6908703090211596,
+        "interval_low": 0.6573504657232767,
+        "interval_width": 0.033519843297882934,
+        "is_measured_zero": false,
+        "numerator": 2023,
+        "resolution_floor": 0.0003333333333333333,
+        "value": 0.6743333333333333
+      },
+      "false_block": {
+        "confidence": 0.95,
+        "denominator": 2000,
+        "interval_high": 0.026545026088593226,
+        "interval_low": 0.014297256348690845,
+        "interval_width": 0.012247769739902381,
+        "is_measured_zero": false,
+        "numerator": 39,
+        "resolution_floor": 0.0005,
+        "value": 0.0195
+      },
+      "scenarios_missed": [
+        "churn_only"
+      ]
+    }
+  }
+}
