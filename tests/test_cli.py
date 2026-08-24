@@ -260,7 +260,7 @@ def test_a_gate_that_could_not_decide_returns_two(capsys, tmp_path):
     import churngate.cli as module
 
     original = module.make_comparison
-    module.make_comparison = lambda *args, **kwargs: comparison
+    module.make_comparison = lambda *_args, **_kwargs: comparison
     try:
         args = argparse.Namespace(
             gate="paired_t",

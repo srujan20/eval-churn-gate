@@ -144,8 +144,13 @@ def audit(comparison: Comparison, policy: Policy) -> AuditResult:
     # The combined gate is reported as the blocking one only when it is the only
     # one that fired, because naming it first would hide which specific condition
     # caught the regression, and that is the useful part of the message.
+    # The combined gate can only fire when one of its three conditions did, so a
+    # block list containing nothing but "combined" is unreachable through the
+    # gates in this package. It is handled rather than asserted because a future
+    # gate that blocks on its own could produce it, and a silent None would then
+    # be a report that named no cause.
     leading = next((name for name in blocked if name != "combined"), None)
-    if leading is None and blocked:
+    if leading is None and blocked:  # pragma: no cover
         leading = blocked[0]
 
     return AuditResult(
