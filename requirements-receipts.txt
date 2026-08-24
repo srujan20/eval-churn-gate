@@ -1,0 +1,9 @@
+# Pinned for the job that publishes figures. The test suite asserts properties and
+# inequalities, so it runs on three Python versions against whatever resolves. The
+# published rates are re-measured only in the receipts job, with these exact
+# versions, because a rate over five thousand gated comparisons is worth nothing if
+# it moves with a minor bump. There is nothing else to pin: ADR-004 explains why
+# this package has no optional runtime dependencies.
+numpy==2.4.4
+scipy==1.17.1
+PyYAML==6.0.3

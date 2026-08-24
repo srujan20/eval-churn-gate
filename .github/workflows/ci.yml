@@ -1,0 +1,118 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install ruff
+      - run: ruff check src tests tools experiments
+      - run: ruff format --check src tests tools experiments
+
+  # Installs without any extra beyond dev, which is the job that catches an
+  # optional dependency imported at module scope. xgboost is a supported
+  # estimator family behind an extra and is deliberately absent here: a machine
+  # with it installed is exactly the machine that cannot catch that bug.
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: pip install -e ".[dev]"
+      - name: Tests
+        run: |
+          python -m pytest -q --junitxml=reports/junit.xml \
+            --cov=churngate --cov-report=json:reports/coverage.json \
+            --cov-report=xml:reports/coverage.xml
+      - name: Coverage floor
+        run: |
+          python - <<'PY'
+          import json, sys
+          floor = 99.0
+          covered = json.load(open("reports/coverage.json"))["totals"]["percent_covered"]
+          print(f"line coverage {covered:.2f}, floor {floor}")
+          sys.exit(0 if covered >= floor else 1)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-reports-${{ matrix.python-version }}
+          path: reports/
+
+  # The only job that re-measures a published rate, with pinned dependency
+  # versions. The tests run on three Pythons against whatever resolves, because
+  # they assert properties rather than values.
+  receipts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          pip install -r requirements-receipts.txt
+          pip install -e ".[dev]"
+      - name: Tests, so the collector can read the reports
+        run: |
+          python -m pytest -q --junitxml=reports/junit.xml \
+            --cov=churngate --cov-report=json:reports/coverage.json
+      - name: Re-run every experiment from scratch
+        run: |
+          rm -rf .cache docs/experiments
+          make experiments
+      - name: Re-measure every published figure
+        run: python tools/collect_metrics.py --skip-tests
+      - name: Check the documents against the code
+        run: python tools/check_numbers.py --strict --summary "$GITHUB_STEP_SUMMARY"
+      - name: Publish the awkward table to the job summary
+        if: always()
+        run: |
+          python - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json
+          metrics = json.load(open("docs/metrics.json"))["metrics"]
+          rows = [
+              ("regressions the shipped aggregate gate catches", metrics["mean_threshold_detection"]),
+              ("regressions the combined gate catches", metrics["combined_detection"]),
+              ("what that costs on a clean release", metrics["combined_false_block"]),
+              ("a collapsed slice, seen by the aggregate gate",
+               metrics["mean_threshold_on_compensating"]),
+              ("the same slice, seen by the slice scan", metrics["slice_scan_on_compensating"]),
+              ("items flipped by run to run noise alone", metrics["churn_floor_median"]),
+              ("of that movement, cancelled by the net", metrics["median_hidden_share"]),
+              ("rank correlation of the delta with the churn", metrics["correlation"]),
+              ("a threshold sized regression, caught", metrics["coin_flip"]),
+              ("comparisons where the honest answer is I cannot tell",
+               metrics["undecidable_share"]),
+          ]
+          print("### The numbers this build would rather not publish\n")
+          print("| quantity | value |")
+          print("| --- | --- |")
+          for name, value in rows:
+              print(f"| {name} | {value} |")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: experiment-json
+          path: |
+            docs/experiments/
+            docs/metrics.json

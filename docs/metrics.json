@@ -1,0 +1,406 @@
+{
+  "anchors": {
+    "aa_block_share": [
+      "blocked {} of them"
+    ],
+    "aa_comparisons": [
+      "{} comparisons whose true effect"
+    ],
+    "aa_pass_share": [
+      "passed only {}"
+    ],
+    "cell_churn_aa": [
+      "| {} |"
+    ],
+    "cell_churn_churn_only": [
+      "| {} |"
+    ],
+    "cell_churn_compensating": [
+      "| {} |"
+    ],
+    "cell_churn_detection": [
+      "| {} |"
+    ],
+    "cell_churn_false_block": [
+      "| {} |"
+    ],
+    "cell_combined_aa": [
+      "| {} |"
+    ],
+    "cell_combined_churn_only": [
+      "| {} |"
+    ],
+    "cell_combined_compensating": [
+      "| {} |"
+    ],
+    "cell_combined_detection": [
+      "| {} |"
+    ],
+    "cell_combined_false_block": [
+      "| {} |"
+    ],
+    "cell_effect_0_000_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_000_paired": [
+      "| {} |"
+    ],
+    "cell_effect_0_005_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_005_paired": [
+      "| {} |"
+    ],
+    "cell_effect_0_010_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_010_paired": [
+      "| {} |"
+    ],
+    "cell_effect_0_020_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_020_paired": [
+      "| {} |"
+    ],
+    "cell_effect_0_030_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_030_paired": [
+      "| {} |"
+    ],
+    "cell_effect_0_050_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_050_paired": [
+      "| {} |"
+    ],
+    "cell_effect_0_080_mean": [
+      "| {} |"
+    ],
+    "cell_effect_0_080_paired": [
+      "| {} |"
+    ],
+    "cell_mde_10000_paired": [
+      "| {} |"
+    ],
+    "cell_mde_10000_unpaired": [
+      "| {} |"
+    ],
+    "cell_mde_1000_paired": [
+      "| {} |"
+    ],
+    "cell_mde_1000_unpaired": [
+      "| {} |"
+    ],
+    "cell_mde_100_paired": [
+      "| {} |"
+    ],
+    "cell_mde_100_unpaired": [
+      "| {} |"
+    ],
+    "cell_mde_3000_paired": [
+      "| {} |"
+    ],
+    "cell_mde_3000_unpaired": [
+      "| {} |"
+    ],
+    "cell_mde_300_paired": [
+      "| {} |"
+    ],
+    "cell_mde_300_unpaired": [
+      "| {} |"
+    ],
+    "cell_mean_threshold_aa": [
+      "| {} |"
+    ],
+    "cell_mean_threshold_churn_only": [
+      "| {} |"
+    ],
+    "cell_mean_threshold_compensating": [
+      "| {} |"
+    ],
+    "cell_mean_threshold_detection": [
+      "| {} |"
+    ],
+    "cell_mean_threshold_false_block": [
+      "| {} |"
+    ],
+    "cell_paired_bootstrap_aa": [
+      "| {} |"
+    ],
+    "cell_paired_bootstrap_churn_only": [
+      "| {} |"
+    ],
+    "cell_paired_bootstrap_compensating": [
+      "| {} |"
+    ],
+    "cell_paired_bootstrap_detection": [
+      "| {} |"
+    ],
+    "cell_paired_bootstrap_false_block": [
+      "| {} |"
+    ],
+    "cell_paired_t_aa": [
+      "| {} |"
+    ],
+    "cell_paired_t_churn_only": [
+      "| {} |"
+    ],
+    "cell_paired_t_compensating": [
+      "| {} |"
+    ],
+    "cell_paired_t_detection": [
+      "| {} |"
+    ],
+    "cell_paired_t_false_block": [
+      "| {} |"
+    ],
+    "cell_slice_scan_aa": [
+      "| {} |"
+    ],
+    "cell_slice_scan_churn_only": [
+      "| {} |"
+    ],
+    "cell_slice_scan_compensating": [
+      "| {} |"
+    ],
+    "cell_slice_scan_detection": [
+      "| {} |"
+    ],
+    "cell_slice_scan_false_block": [
+      "| {} |"
+    ],
+    "churn_detection": [
+      "catches {} overall"
+    ],
+    "churn_false_block": [
+      "blocking only {}"
+    ],
+    "churn_floor_median": [
+      "flips {} of items"
+    ],
+    "churn_floor_p95": [
+      "ninety fifth percentile of {}"
+    ],
+    "churn_on_churn_only": [
+      "catches that one {}"
+    ],
+    "coin_flip": [
+      "catches it {} of the time it happens"
+    ],
+    "combined_detection": [
+      "catches {}, at"
+    ],
+    "combined_false_block": [
+      "false block rate of {}"
+    ],
+    "comparisons": [
+      "{} gated comparisons"
+    ],
+    "correlation": [
+      "rank correlation of {} in magnitude"
+    ],
+    "correlation_p": [
+      "a p value of {}"
+    ],
+    "coverage_line_pct": [
+      "{} percent line coverage",
+      "{}% line coverage"
+    ],
+    "detection_at_threshold_paired": [
+      "against {} for the paired"
+    ],
+    "exact_comparisons": [
+      "{} comparisons whose true aggregate"
+    ],
+    "exact_correlation": [
+      "correlation there is {} in magnitude"
+    ],
+    "first_flip_limit": [
+      "first value was {}"
+    ],
+    "flip_limit": [
+      "a limit of {}"
+    ],
+    "flip_max": [
+      "to {} of items"
+    ],
+    "flip_min": [
+      "from {} to"
+    ],
+    "interval_false_block": [
+      "blocks {} of clean"
+    ],
+    "items": [
+      "{} item eval set",
+      "eval set of {}"
+    ],
+    "items_needed_paired": [
+      "needs {} items paired"
+    ],
+    "items_needed_unpaired": [
+      "or {} comparing two"
+    ],
+    "mde_paired": [
+      "is {} paired"
+    ],
+    "mde_unpaired": [
+      "against {} when"
+    ],
+    "mean_threshold_detection": [
+      "catches {} of"
+    ],
+    "mean_threshold_on_compensating": [
+      "sees it {} of the time"
+    ],
+    "mean_threshold_zero_denominator": [
+      "over {} clean releases"
+    ],
+    "mean_threshold_zero_floor": [
+      "below {} percent"
+    ],
+    "median_aggregate_on_compensating": [
+      "aggregate moves by {} in"
+    ],
+    "median_hidden_share": [
+      "{} of that movement"
+    ],
+    "median_slice_effect": [
+      "loses {} while the aggregate"
+    ],
+    "near_zero_comparisons": [
+      "{} comparisons whose delta"
+    ],
+    "observed_sd": [
+      "standard deviation of {}"
+    ],
+    "pairing_gain": [
+      "worth a factor of {}"
+    ],
+    "predicted_sd": [
+      "predicted {} from"
+    ],
+    "slice_scan_on_churn_only": [
+      "only {} of it"
+    ],
+    "slice_scan_on_compensating": [
+      "catches it {} of the time"
+    ],
+    "tests_total": [
+      "{} tests"
+    ],
+    "undecidable_share": [
+      "{} of the time the honest answer"
+    ]
+  },
+  "checked_documents": [
+    "README.md",
+    "docs/defense-guide.md",
+    "docs/adr/ADR-001-gate-on-transitions-not-only-on-the-aggregate.md",
+    "docs/adr/ADR-002-the-aa-comparison-is-the-anchor.md",
+    "docs/adr/ADR-003-three-verdicts-because-two-cannot-say-i-do-not-know.md",
+    "docs/adr/ADR-004-no-optional-dependencies.md",
+    "docs/adr/ADR-005-every-rate-carries-an-interval.md"
+  ],
+  "metrics": {
+    "aa_block_share": 0.069,
+    "aa_comparisons": 1000,
+    "aa_pass_share": 0.003,
+    "cell_churn_aa": 0.003,
+    "cell_churn_churn_only": 1.0,
+    "cell_churn_compensating": 0.135,
+    "cell_churn_detection": 0.384,
+    "cell_churn_false_block": 0.005,
+    "cell_combined_aa": 0.067,
+    "cell_combined_churn_only": 1.0,
+    "cell_combined_compensating": 1.0,
+    "cell_combined_detection": 1.0,
+    "cell_combined_false_block": 0.037,
+    "cell_effect_0_000_mean": 0.0,
+    "cell_effect_0_000_paired": 0.055,
+    "cell_effect_0_005_mean": 0.0,
+    "cell_effect_0_005_paired": 0.28,
+    "cell_effect_0_010_mean": 0.018,
+    "cell_effect_0_010_paired": 0.617,
+    "cell_effect_0_020_mean": 0.455,
+    "cell_effect_0_020_paired": 0.99,
+    "cell_effect_0_030_mean": 0.973,
+    "cell_effect_0_030_paired": 1.0,
+    "cell_effect_0_050_mean": 1.0,
+    "cell_effect_0_050_paired": 1.0,
+    "cell_effect_0_080_mean": 1.0,
+    "cell_effect_0_080_paired": 1.0,
+    "cell_mde_10000_paired": 0.0021,
+    "cell_mde_10000_unpaired": 0.008,
+    "cell_mde_1000_paired": 0.0067,
+    "cell_mde_1000_unpaired": 0.0254,
+    "cell_mde_100_paired": 0.0211,
+    "cell_mde_100_unpaired": 0.0802,
+    "cell_mde_3000_paired": 0.0039,
+    "cell_mde_3000_unpaired": 0.0146,
+    "cell_mde_300_paired": 0.0122,
+    "cell_mde_300_unpaired": 0.0463,
+    "cell_mean_threshold_aa": 0.0,
+    "cell_mean_threshold_churn_only": 0.0,
+    "cell_mean_threshold_compensating": 0.0,
+    "cell_mean_threshold_detection": 0.323,
+    "cell_mean_threshold_false_block": 0.0,
+    "cell_paired_bootstrap_aa": 0.039,
+    "cell_paired_bootstrap_churn_only": 0.0,
+    "cell_paired_bootstrap_compensating": 0.022,
+    "cell_paired_bootstrap_detection": 0.341,
+    "cell_paired_bootstrap_false_block": 0.019,
+    "cell_paired_t_aa": 0.04,
+    "cell_paired_t_churn_only": 0.0,
+    "cell_paired_t_compensating": 0.022,
+    "cell_paired_t_detection": 0.341,
+    "cell_paired_t_false_block": 0.02,
+    "cell_slice_scan_aa": 0.039,
+    "cell_slice_scan_churn_only": 0.028,
+    "cell_slice_scan_compensating": 1.0,
+    "cell_slice_scan_detection": 0.674,
+    "cell_slice_scan_false_block": 0.019,
+    "churn_detection": 0.384,
+    "churn_false_block": 0.005,
+    "churn_floor_median": 0.1167,
+    "churn_floor_p95": 0.1467,
+    "churn_on_churn_only": 1.0,
+    "coin_flip": 0.455,
+    "combined_detection": 1.0,
+    "combined_false_block": 0.037,
+    "comparisons": 5000,
+    "correlation": 0.001,
+    "correlation_p": 0.963,
+    "coverage_line_pct": 99.3,
+    "detection_at_threshold_paired": 0.99,
+    "exact_comparisons": 2000,
+    "exact_correlation": 0.0027,
+    "first_flip_limit": 0.06,
+    "flip_limit": 0.17,
+    "flip_max": 0.5933,
+    "flip_min": 0.0667,
+    "interval_false_block": 0.039,
+    "items": 300,
+    "items_needed_paired": 112,
+    "items_needed_unpaired": 1608,
+    "mde_paired": 0.0122,
+    "mde_unpaired": 0.0463,
+    "mean_threshold_detection": 0.323,
+    "mean_threshold_on_compensating": 0.0,
+    "mean_threshold_zero_denominator": 2000,
+    "mean_threshold_zero_floor": 0.05,
+    "median_aggregate_on_compensating": 0.0006,
+    "median_hidden_share": 0.8889,
+    "median_slice_effect": 0.1173,
+    "near_zero_comparisons": 2133,
+    "observed_sd": 0.0046,
+    "pairing_gain": 3.8,
+    "predicted_sd": 0.0049,
+    "slice_scan_on_churn_only": 0.028,
+    "slice_scan_on_compensating": 1.0,
+    "tests_total": 206,
+    "undecidable_share": 0.928
+  },
+  "note": "every value here is produced by running the suite and the five experiments"
+}

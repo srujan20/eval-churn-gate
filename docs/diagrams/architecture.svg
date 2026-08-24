@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 748" width="1000" height="748" role="img" aria-label="What the aggregate is a function of, what the transitions are a function of, and which gate reads which">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9aa2aa" />
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1000" height="748" fill="#ffffff" />
+  <text x="40" y="32" fill="#14171a" font-size="15" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>churngate: the aggregate is the difference of two cells, and the churn is their sum</tspan>
+  </text>
+  <rect x="40" y="62" width="920" height="92" rx="6" fill="#e8eef5" stroke="#a9bed4" stroke-width="1.2" />
+  <text x="54" y="87" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Two runs of an eval, scored on the same items</tspan>
+  </text>
+  <text x="54" y="108" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>A baseline and a candidate. Both are scored on the same items, so the item to item</tspan>
+  </text>
+  <text x="54" y="127" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>spread cancels exactly when the comparison is made item by item and not at all when</tspan>
+  </text>
+  <text x="54" y="146" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>two averages are compared. That is worth a factor of four in what is detectable.</tspan>
+  </text>
+  <line x1="260" y1="156" x2="260" y2="200" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <line x1="740" y1="156" x2="740" y2="200" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="40" y="204" width="440" height="108" rx="6" fill="#eef4ea" stroke="#b3cba4" stroke-width="1.2" />
+  <text x="54" y="229" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Four transition cells</tspan>
+  </text>
+  <text x="54" y="250" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>passed and now fails, failed and now</tspan>
+  </text>
+  <text x="54" y="269" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>passes, and the two that did not move.</tspan>
+  </text>
+  <text x="54" y="288" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Their sum is who is affected.</tspan>
+  </text>
+  <rect x="520" y="204" width="440" height="108" rx="6" fill="#fdf0d8" stroke="#e5c583" stroke-width="1.2" />
+  <text x="534" y="229" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>One aggregate delta</tspan>
+  </text>
+  <text x="534" y="250" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>the difference of two means, which is</tspan>
+  </text>
+  <text x="534" y="269" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>the difference between the first two</tspan>
+  </text>
+  <text x="534" y="288" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>cells. Their sum does not survive it.</tspan>
+  </text>
+  <line x1="482" y1="258" x2="516" y2="258" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <text x="500" y="250" fill="#5b636b" font-size="10.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="middle">
+    <tspan>derived from</tspan>
+  </text>
+  <line x1="260" y1="314" x2="151" y2="370" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="40" y="374" width="222" height="112" rx="6" fill="#eef4ea" stroke="#b3cba4" stroke-width="1.2" />
+  <text x="54" y="399" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>churn</tspan>
+  </text>
+  <text x="54" y="420" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>counts crossings</tspan>
+  </text>
+  <text x="54" y="439" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>instead of differencing</tspan>
+  </text>
+  <text x="54" y="458" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>them. Sees pure churn</tspan>
+  </text>
+  <line x1="151" y1="488" x2="151" y2="516" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <line x1="260" y1="314" x2="389" y2="370" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="278" y="374" width="222" height="112" rx="6" fill="#eef4ea" stroke="#b3cba4" stroke-width="1.2" />
+  <text x="292" y="399" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>slice_scan</tspan>
+  </text>
+  <text x="292" y="420" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>tests a partition</tspan>
+  </text>
+  <text x="292" y="439" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>rather than a total.</tspan>
+  </text>
+  <text x="292" y="458" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Sees a collapsed slice</tspan>
+  </text>
+  <line x1="389" y1="488" x2="389" y2="516" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <line x1="740" y1="314" x2="627" y2="370" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="516" y="374" width="222" height="112" rx="6" fill="#fdf0d8" stroke="#e5c583" stroke-width="1.2" />
+  <text x="530" y="399" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>paired tests</tspan>
+  </text>
+  <text x="530" y="420" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>read the per item</tspan>
+  </text>
+  <text x="530" y="439" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>deltas. Powerful, and</tspan>
+  </text>
+  <text x="530" y="458" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>still aggregate</tspan>
+  </text>
+  <line x1="627" y1="488" x2="627" y2="516" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <line x1="740" y1="314" x2="857" y2="370" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="754" y="374" width="206" height="112" rx="6" fill="#fdf0d8" stroke="#e5c583" stroke-width="1.2" />
+  <text x="768" y="399" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>mean_threshold</tspan>
+  </text>
+  <text x="768" y="420" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>reads two numbers</tspan>
+  </text>
+  <text x="768" y="439" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>misses both zero</tspan>
+  </text>
+  <text x="768" y="458" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>aggregate regressions</tspan>
+  </text>
+  <line x1="857" y1="488" x2="857" y2="516" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="40" y="520" width="920" height="76" rx="6" fill="#f2f4f6" stroke="#8f9aa4" stroke-width="1.2" />
+  <text x="54" y="545" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Graded against an A/A comparison, where the true effect is exactly zero</tspan>
+  </text>
+  <text x="54" y="566" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Every block here is a false block and every point of churn is noise. That is what turns a false block rate</tspan>
+  </text>
+  <text x="54" y="585" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>from an assumption into a measurement, and it is where the churn floor comes from.</tspan>
+  </text>
+  <line x1="500" y1="598" x2="500" y2="616" stroke="#9aa2aa" stroke-width="1.2" marker-end="url(#arrow)" />
+  <rect x="250" y="620" width="500" height="92" rx="6" fill="#f2f4f6" stroke="#8f9aa4" stroke-width="1.2" />
+  <text x="264" y="645" fill="#14171a" font-size="13.5" font-weight="650" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Verdict, and the exit code that carries it</tspan>
+  </text>
+  <text x="264" y="666" fill="#5b636b" font-size="11.5" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="start">
+    <tspan>0  the candidate passes, resolvably</tspan>
+  </text>
+  <text x="264" y="683" fill="#5b636b" font-size="11.5" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="start">
+    <tspan>1  a regression was detected</tspan>
+  </text>
+  <text x="264" y="700" fill="#5b636b" font-size="11.5" font-weight="400" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" text-anchor="start">
+    <tspan>2  this eval set cannot resolve it</tspan>
+  </text>
+  <text x="40" y="738" fill="#5b636b" font-size="11.5" font-weight="400" font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" text-anchor="start">
+    <tspan>Amber reads the aggregate and cannot see a regression that keeps the mean. Green reads the cells.</tspan>
+  </text>
+</svg>

@@ -1,0 +1,80 @@
+{
+  "shots": [
+    {
+      "image": "docs/screenshots/gate-compensating.png",
+      "report": ".cache/reports/gate.html",
+      "framed_by": [
+        "What this eval set can and cannot resolve",
+        "Graded against a truth no gate can see"
+      ],
+      "caption": "One gated comparison where a slice collapsed and the aggregate did not move",
+      "device_scale_factor": 2,
+      "badge": {
+        "colour": "rgb(109, 23, 23)",
+        "background": "rgb(250, 227, 227)",
+        "border": "rgb(224, 167, 167)",
+        "visible": true,
+        "text": "A regression was detected",
+        "contrast_ratio": 9.61
+      },
+      "bytes": 181423
+    },
+    {
+      "image": "docs/screenshots/gate-transitions.png",
+      "report": ".cache/reports/gate.html",
+      "framed_by": [
+        "Item by item, which is where a compensating change lives",
+        "What this eval set can and cannot resolve"
+      ],
+      "caption": "The four cells the aggregate is computed from",
+      "device_scale_factor": 2,
+      "badge": {
+        "colour": "rgb(109, 23, 23)",
+        "background": "rgb(250, 227, 227)",
+        "border": "rgb(224, 167, 167)",
+        "visible": true,
+        "text": "A regression was detected",
+        "contrast_ratio": 9.61
+      },
+      "bytes": 109161
+    },
+    {
+      "image": "docs/screenshots/gate-truth.png",
+      "report": ".cache/reports/gate.html",
+      "framed_by": [
+        "Graded against a truth no gate can see",
+        null
+      ],
+      "caption": "The truth the gates cannot see, with the exact ones marked",
+      "device_scale_factor": 2,
+      "badge": {
+        "colour": "rgb(109, 23, 23)",
+        "background": "rgb(250, 227, 227)",
+        "border": "rgb(224, 167, 167)",
+        "visible": true,
+        "text": "A regression was detected",
+        "contrast_ratio": 9.61
+      },
+      "bytes": 62909
+    },
+    {
+      "image": "docs/screenshots/sweep-grid.png",
+      "report": ".cache/reports/sweep.html",
+      "framed_by": [
+        "Block rate by scenario and gate",
+        null
+      ],
+      "caption": "Every gate on every scenario, with a Wilson interval on every rate",
+      "device_scale_factor": 2,
+      "badge": {
+        "colour": "rgb(109, 23, 23)",
+        "background": "rgb(250, 227, 227)",
+        "border": "rgb(224, 167, 167)",
+        "visible": true,
+        "text": "The zero columns are the point",
+        "contrast_ratio": 9.61
+      },
+      "bytes": 192811
+    }
+  ]
+}
