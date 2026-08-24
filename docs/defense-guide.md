@@ -65,7 +65,7 @@ The shipped configuration **decides in 14.9 ms** at the median, with a **p95 of 
 
 ## Questions that are meant to be hard
 
-**Is this just a paired t test?** The paired test is one of five gates and one of the three that cannot see a compensating regression. What is mine: the transition decomposition with the net against gross split, the A/A anchor and the three quantities it makes measurable, the slice scan with a Holm correction and a measurement of what it costs, the third verdict, and the receipts pipeline that fails the build when a document quotes a number the code no longer produces. Around eight hundred statements of source, **206 tests**, **99.3 percent line coverage**.
+**Is this just a paired t test?** The paired test is one of five gates and one of the three that cannot see a compensating regression. What is mine: the transition decomposition with the net against gross split, the A/A anchor and the three quantities it makes measurable, the slice scan with a Holm correction and a measurement of what it costs, the third verdict, and the receipts pipeline that fails the build when a document quotes a number the code no longer produces. Around eight hundred statements of source, **207 tests**, **99.3 percent line coverage**.
 
 **Your scores are generated. Does any of it transfer?** Two kinds of claim, and they transfer differently. The structural one, that an aggregate cannot bound the churn, is arithmetic and transfers everywhere. The magnitudes are properties of these noise parameters, a run to run standard deviation of 0.06 and an item spread of 0.22, and the tool reads a policy file precisely so a team can put their own measured numbers in it. Do not let this question get answered with "it transfers" alone.
 

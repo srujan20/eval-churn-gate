@@ -3,7 +3,7 @@
 **A regression gate for model evaluations that blocks a release when one slice collapses while the average holds, refuses to call a difference it cannot resolve a pass, and publishes its own false block rate so a green tick means something.**
 
 [![ci](https://github.com/srujan20/eval-churn-gate/actions/workflows/ci.yml/badge.svg)](https://github.com/srujan20/eval-churn-gate/actions/workflows/ci.yml)
-[![tests 206](https://img.shields.io/badge/tests-206-2a78d6)](#tests-coverage-and-receipts)
+[![tests 207](https://img.shields.io/badge/tests-207-2a78d6)](#tests-coverage-and-receipts)
 [![coverage 99.3%](https://img.shields.io/badge/coverage-99.3%25-2a78d6)](#tests-coverage-and-receipts)
 [![readme numbers machine checked](https://img.shields.io/badge/readme%20numbers-machine%20checked-1baf7a)](#every-number-here-is-checked-by-ci)
 [![catches a collapsed slice the mean hides](https://img.shields.io/badge/demo-catches%20a%20collapsed%20slice%20the%20mean%20hides-e34948)](#the-three-verdicts-on-real-runs)
@@ -21,7 +21,7 @@ An eval regression gate is usually a threshold on one summary number, and one su
 
 `churngate` turns that into a build status with three outcomes rather than two. It reads per item scores from two runs, computes the four transition cells before it computes any average, runs five gates plus a combination of them, and returns one of three verdicts: a regression was detected, the candidate passes, or this eval set cannot resolve a difference this small. The combined gate **catches 1.0, at a false block rate of 0.037**, and that cost is printed rather than hidden: the paired interval alone blocks 0.039 of clean releases, and the extra conditions are what buy the two scenarios it misses. The uncomfortable number is the third verdict. On comparisons whose true effect is exactly zero, this tool answers "the eval set cannot resolve a difference this small" 0.928 of the time the honest answer is exactly that, and a gate with only pass and fail returns pass for all of them.
 
-Over 1000 comparisons whose true effect is exactly zero, run to run variation alone flips 0.1167 of items across the pass boundary, with a ninety fifth percentile of 0.1467, and 0.8889 of that movement is cancelled by the net. That is the number that made the design: one item in nine changes side while the average reports approximately nothing. 206 tests, 99.3 percent line coverage, over 5000 gated comparisons, and `make verify` re-measures every figure quoted in this document, in the defense guide, in the policy file and in five decision records, and fails if any of them has moved.
+Over 1000 comparisons whose true effect is exactly zero, run to run variation alone flips 0.1167 of items across the pass boundary, with a ninety fifth percentile of 0.1467, and 0.8889 of that movement is cancelled by the net. That is the number that made the design: one item in nine changes side while the average reports approximately nothing. 207 tests, 99.3 percent line coverage, over 5000 gated comparisons, and `make verify` re-measures every figure quoted in this document, in the defense guide, in the policy file and in five decision records, and fails if any of them has moved.
 
 ## Watch it work (30 seconds)
 
@@ -206,7 +206,7 @@ The strongest form of the impossibility, as a number rather than an argument: ac
 | numpy | the score matrices and the bootstrap resampling | the paired bootstrap is one fancy indexing operation on a resamples by items matrix, so a thousand replications finish in a minute instead of an afternoon |
 | scipy.stats | the t test, the normal quantiles, Spearman | the power arithmetic is written out in `gates.py` rather than imported, and only the distribution functions come from here, so the arithmetic can be checked by hand |
 | PyYAML | the policy file | thresholds are the subject of this repository, so they cannot live in code where a reader has to trust a diff to find them |
-| pytest, pytest-cov | 206 tests, 99.3 percent line coverage | the A/A anchor is a test as well as an experiment, so a change that breaks the zero effect construction fails the suite rather than quietly moving every published rate |
+| pytest, pytest-cov | 207 tests, 99.3 percent line coverage | the A/A anchor is a test as well as an experiment, so a change that breaks the zero effect construction fails the suite rather than quietly moving every published rate |
 | ruff | lint and format, on `src`, `tests`, `tools`, `experiments` and `benchmark` | one tool, one config, and no argument about style in review |
 | GitHub Actions | three Pythons, then a separate pinned receipts job | the tests run against whatever resolves because they assert properties; the published rates are re-measured with exact pins, because a rate over 5000 gated comparisons is worth nothing if it moves with a minor version bump |
 | GitHub Actions composite action | distribution | `action.yml` makes this five lines in another repository, which is the difference between a demo and a tool |
@@ -231,7 +231,7 @@ python -m churngate power                            # what this eval set can re
 python -m churngate gate --scenario compensating     # a slice collapses, the aggregate holds, exit 1
 python -m churngate gate --scenario aa               # scored against itself, exit 2, not exit 0
 python -m churngate sweep --html report.html         # every gate on every scenario, interval on every rate
-make verify                                          # lint, 206 tests, and every published figure re-measured
+make verify                                          # lint, 207 tests, and every published figure re-measured
 ```
 
 `make help` lists every target. Everything regenerates deterministically from a seed, so a figure in this document can be reproduced from a fresh clone rather than taken on trust.
@@ -282,7 +282,7 @@ The comparison in the chart is the one worth reading. At 20000 items the **slice
 
 ## Tests, coverage, and receipts
 
-206 tests, 99.3 percent line coverage, measured with `pytest --cov=churngate` and enforced in CI by a floor parsed out of `reports/coverage.json`, so the badge cannot rot. The suite runs on Python 3.11, 3.12 and 3.13, and it installs with the `dev` extra only, which is the configuration that catches an optional dependency imported at module scope. There is no uncovered adapter to disclose here, because there is no adapter: ADR-004 explains why this package has no optional runtime dependencies, and a hygiene test asserts the absence rather than trusting it.
+207 tests, 99.3 percent line coverage, measured with `pytest --cov=churngate` and enforced in CI by a floor parsed out of `reports/coverage.json`, so the badge cannot rot. The suite runs on Python 3.11, 3.12 and 3.13, and it installs with the `dev` extra only, which is the configuration that catches an optional dependency imported at module scope. There is no uncovered adapter to disclose here, because there is no adapter: ADR-004 explains why this package has no optional runtime dependencies, and a hygiene test asserts the absence rather than trusting it.
 
 ### Every number here is checked by CI
 

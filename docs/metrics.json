@@ -595,7 +595,7 @@
     "predicted_sd": 0.0049,
     "slice_scan_on_churn_only": 0.028,
     "slice_scan_on_compensating": 1.0,
-    "tests_total": 206,
+    "tests_total": 207,
     "undecidable_share": 0.928
   },
   "note": "every value here is produced by running the suite and the five experiments"
