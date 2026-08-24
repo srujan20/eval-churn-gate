@@ -1,0 +1,70 @@
+# Gate policy for churngate.
+#
+# Every threshold here is a decision about what counts as a regression, not a
+# fact about the model. The comment on each says who normally makes that choice
+# and what the experiments measured about it.
+
+gate:
+  # The aggregate drop a mean threshold gate blocks on. Two points of the metric
+  # is what teams routinely ship a model over, which is exactly why a gate set
+  # there is worth measuring. exp03 reports the smallest regression this eval set
+  # can actually resolve, and it is larger than this.
+  mean_drop: 0.02
+  # Significance level for the paired tests. 0.05 is conventional and the
+  # convention is the point: exp01 measures what false block rate it produces on
+  # comparisons whose true effect is exactly zero, rather than assuming it lands
+  # at five percent.
+  alpha: 0.05
+  # Statistical power the minimum detectable effect is quoted at. 0.80 is the
+  # usual choice. Reported rather than assumed, because a gate at eighty percent
+  # power misses one real regression in five and nobody says so out loud.
+  power: 0.80
+  # Bootstrap resamples for the paired interval. 2000 keeps the Monte Carlo error
+  # of the interval well below the effect being tested, and exp05 reports that
+  # error rather than asserting it is small.
+  bootstrap_resamples: 2000
+
+churn:
+  # An item is counted as flipped when its score crosses this threshold in either
+  # direction. A pass or fail boundary is what a person downstream experiences,
+  # and a metric that only moves in aggregate hides every crossing.
+  pass_threshold: 0.5
+  # Flip rate above this blocks, and the value is measured rather than chosen.
+  # The first version here was 0.06, written from
+  # intuition, and exp01 measured the A/A floor at roughly twice that: run to run
+  # noise alone flips about one item in nine across the boundary. A limit of 0.06
+  # blocked every comparison whose true effect was exactly zero. This value sits
+  # above the ninety fifth percentile of the measured floor, and if the noise
+  # parameters change it has to be recalibrated again.
+  flip_rate_limit: 0.17
+  # Ignore a crossing whose score moved by less than this. An item sitting exactly
+  # on the boundary crosses on a rounding difference, and counting those inflates
+  # the churn without any user seeing a change.
+  minimum_movement: 0.01
+
+evaluation:
+  # Items in the eval set. 300 is a realistic size for a hand labelled set, and
+  # the whole point of exp03 is that it is too small for the deltas people gate
+  # on. Larger sizes are swept rather than assumed.
+  items: 300
+  # Sizes exp03 sweeps when reporting the minimum detectable effect.
+  item_sweep: [100, 300, 1000, 3000, 10000]
+  # Replications per scenario. Every published rate is a rate over this many
+  # independent version pairs, and every one is published with a Wilson interval
+  # rather than as a point. At one thousand replications a rate near five percent
+  # has a standard error of about seven thousandths, which is the difference
+  # between reporting a false block rate and guessing one: an earlier run of this
+  # corpus at two hundred and fifty replications produced 0.084 for a test whose
+  # true level is 0.05, purely from sampling.
+  replications: 1000
+
+noise:
+  # Standard deviation of the run to run component: the same version scored twice
+  # does not give the same numbers, because sampling, temperature or ordering
+  # move it. This is the quantity that makes an A/A comparison non trivial, and
+  # it is the single most important number in the file.
+  run_sd: 0.06
+  # Standard deviation of the item to item component. Larger than the run noise,
+  # which is why a paired test is worth so much more than comparing two means:
+  # pairing removes this term entirely.
+  item_sd: 0.22
