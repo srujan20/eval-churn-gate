@@ -249,7 +249,7 @@ The flip rate limit is the one threshold that cannot be copied, because it has t
 In another repository, as a step:
 
 ```yaml
-- uses: srujan20/eval-churn-gate@main
+- uses: srujan20/eval-churn-gate@v1.0.0
   with:
     policy: configs/policy.yaml
     scenario: compensating
