@@ -65,6 +65,49 @@ jobs:
           name: test-reports-${{ matrix.python-version }}
           path: reports/
 
+  # The tool run the way a consumer would run it, through its own composite action.
+  # This is the only job that would notice `action.yml` drifting from the CLI it
+  # wraps, and a step that has only ever seen exit 0 is not testing an exit code, so
+  # every verdict the action's inputs can reach is asserted here.
+  #
+  # `warn-only` appears on exactly one step per verdict set, and only on the exit 1
+  # one. Exit 1 is the finding this repository exists to report, so the action is
+  # meant to fail a step on it, and a job that quietly turned that off everywhere
+  # would be testing a tool nobody runs. The verdict and the exit code are still
+  # asserted from the step's outputs.
+  action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./
+        id: blocked
+        with:
+          scenario: compensating
+          warn-only: "true"
+      - name: A slice collapses while the aggregate holds, and the gate blocks
+        run: |
+          echo "verdict ${{ steps.blocked.outputs.verdict }}, exit ${{ steps.blocked.outputs.exit-code }}"
+          test "${{ steps.blocked.outputs.verdict }}" = "regression-detected"
+          test "${{ steps.blocked.outputs.exit-code }}" = "1"
+      - uses: ./
+        id: undecidable
+        with:
+          scenario: aa
+      - name: A true effect of exactly zero is reported undecidable, not passed
+        run: |
+          echo "verdict ${{ steps.undecidable.outputs.verdict }}"
+          test "${{ steps.undecidable.outputs.verdict }}" = "eval-set-cannot-resolve-this"
+          test "${{ steps.undecidable.outputs.exit-code }}" = "2"
+      - uses: ./
+        id: passes
+        with:
+          scenario: improvement
+      - name: A genuine improvement passes, which is what makes the other two a boundary
+        run: |
+          echo "verdict ${{ steps.passes.outputs.verdict }}"
+          test "${{ steps.passes.outputs.verdict }}" = "candidate-passes"
+          test "${{ steps.passes.outputs.exit-code }}" = "0"
+
   # The only job that re-measures a published rate, with pinned dependency
   # versions. The tests run on three Pythons against whatever resolves, because
   # they assert properties rather than values.
