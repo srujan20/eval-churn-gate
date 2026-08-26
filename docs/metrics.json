@@ -443,7 +443,6 @@
   },
   "checked_documents": [
     "README.md",
-    "docs/defense-guide.md",
     "docs/adr/ADR-001-gate-on-transitions-not-only-on-the-aggregate.md",
     "docs/adr/ADR-002-the-aa-comparison-is-the-anchor.md",
     "docs/adr/ADR-003-three-verdicts-because-two-cannot-say-i-do-not-know.md",
@@ -598,5 +597,8 @@
     "tests_total": 207,
     "undecidable_share": 0.928
   },
-  "note": "every value here is produced by running the suite and the five experiments"
+  "note": "every value here is produced by running the suite and the five experiments",
+  "optional_documents": [
+    "docs/defense-guide.md"
+  ]
 }

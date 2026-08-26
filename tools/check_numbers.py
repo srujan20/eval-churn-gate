@@ -101,13 +101,18 @@ STRUCTURAL_NUMBERS = {
 }
 
 
-def load_metrics() -> tuple[dict[str, object], dict[str, list[str]], list[str]]:
+def load_metrics() -> tuple[dict[str, object], dict[str, list[str]], list[str], list[str]]:
     if not METRICS.is_file():
         raise SystemExit(
             f"{METRICS.relative_to(REPO)} is missing. Run tools/collect_metrics.py first."
         )
     payload = json.loads(METRICS.read_text(encoding="utf-8"))
-    return payload["metrics"], payload["anchors"], payload["checked_documents"]
+    return (
+        payload["metrics"],
+        payload["anchors"],
+        payload["checked_documents"],
+        payload.get("optional_documents", []),
+    )
 
 
 def policy_numbers() -> set[str]:
@@ -210,7 +215,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--summary", help="append a markdown summary to this file")
     args = parser.parse_args(argv)
 
-    metrics, anchors, checked = load_metrics()
+    metrics, anchors, checked, optional = load_metrics()
     documents: dict[str, str] = {}
     for name in checked:
         path = REPO / name
@@ -219,10 +224,26 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         documents[name] = prose_of(path)
 
+    # Optional documents are checked when present and skipped when not, and the
+    # defense guide is the reason the distinction exists. It is an interview
+    # preparation document: publishing it hands every interviewer the rehearsal, so
+    # a repository that removes it is making a sensible choice and the receipts
+    # check should not be what stops it. Nothing is weakened by its absence, because
+    # every figure it quotes is quoted somewhere that stays.
+    skipped: list[str] = []
+    for name in optional:
+        path = REPO / name
+        if path.is_file():
+            documents[name] = prose_of(path)
+        else:
+            skipped.append(name)
+
     failures = forward_check(metrics, anchors, documents)
     unexplained = reverse_check(metrics, documents)
 
     print(f"checked {len(metrics)} metrics against {len(documents)} documents")
+    for name in skipped:
+        print(f"skipped  {name}, which is optional and not in this checkout")
     for failure in failures:
         print(f"STALE  {failure}")
     for document, tokens in unexplained.items():
