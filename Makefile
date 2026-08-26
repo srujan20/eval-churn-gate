@@ -14,6 +14,7 @@ help:
 	@echo "evidence     diagram, screenshots, demo video and the README image check."
 	@echo "             Needs the evidence extra: pip install -e '.[evidence]'"
 	@echo "pdf          lay out the defense guide for offline reading"
+	@echo "delta        what moved since the last release, read out of the tag"
 
 install:
 	$(PY) -m pip install -e ".[dev]"
@@ -56,6 +57,14 @@ evidence:
 	$(PY) tools/capture_screenshots.py
 	$(PY) tools/record_demo.py
 	$(PY) tools/check_readme.py README.md
+
+# Reads docs/metrics.json out of the newest v* tag and compares it against the
+# working tree. Needs tags in the checkout: git fetch --tags. A release whose
+# figures all held is a release that changed how the work is checked rather than
+# what it found, and this is what lets a CHANGELOG say so checkably.
+delta:
+	$(PY) tools/compare_releases.py
+	$(PY) tools/compare_releases.py --check CHANGELOG.md
 
 pdf:
 	$(PY) tools/build_pdf.py docs/defense-guide.md

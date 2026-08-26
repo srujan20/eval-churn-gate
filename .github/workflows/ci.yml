@@ -140,6 +140,19 @@ jobs:
         run: python tools/collect_metrics.py --skip-tests
       - name: Check the documents against the code
         run: python tools/check_numbers.py --strict --summary "$GITHUB_STEP_SUMMARY"
+      # The CHANGELOG claims a count of figures that held and moved since the last
+      # release. This reads docs/metrics.json out of that tag and checks the claim,
+      # so a release note cannot describe a release it did not have. Skipped when the
+      # checkout has no tag yet, because the first release has nothing to compare to.
+      - name: Check the CHANGELOG against the last release
+        run: |
+          git fetch --tags --quiet || true
+          if [ -z "$(git tag -l 'v*')" ]; then
+            echo "no v* tag in this checkout, so there is no release to compare against"
+            exit 0
+          fi
+          python tools/compare_releases.py
+          python tools/compare_releases.py --check CHANGELOG.md
       - name: Publish the awkward table to the job summary
         if: always()
         run: |
